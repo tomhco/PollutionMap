@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MQTTMAP</title>
+	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="http://92.222.69.233:3000/socket.io/socket.io.js"></script>
+	<style>
+
+	body {
+
+		background-color: #ebebeb;
+
+	}
+
+	h1 {
+
+		font-size: 24px;
+		line-height: 30px;
+		font-family: "Arial Black", Gadget, sans-serif;
+		font-weight: 600;
+		text-align: center;
+
+	}
+
+	.wrapper {
+
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-top: -380px;
+		margin-left: -470px;
+		width: 990px;
+		height: 640px;
+
+	}
+
+	.nospace {
+
+		display: block;
+		float: left;
+		padding: 0;
+		margin: 0;
+
+	}
+
+	</style>
+</head>
+<body>
+
+	<div class="wrapper">
+		<h1>POLUTIONMAP</h1>
+		<img id="cubeOne" class="nospace" alt="cubeOne" src="http://i.imgur.com/SEcIi7e.png" />
+		<img id="cubeTwo" class="nospace" alt="cubeTwo" src="http://imgur.com/BfrnHOw,SpcBwBv,shaDgBf" />
+		<img id="cubeThree" class="nospace" alt="cubeThree" src="http://imgur.com/BfrnHOw,SpcBwBv,shaDgBf" />
+		<img class="nospace" alt="map" src="http://i.imgur.com/SEcIi7e.png" />
+	</div>
+
+	<script>
+
+		var socket = io.connect('http://92.222.69.233:3000');
+
+		socket.on('cubeOne', function(image){
+
+			$("#cubeOne").attr("src", image);
+
+		});
+
+		socket.on('cubeTwo', function(image){
+
+			$("#cubeTwo").attr("src", image);
+
+		});
+
+		socket.on('cubeThree', function(image){
+
+			$("#cubeThree").attr("src", image);
+
+		});
+
+	</script>
+
+</body>
+</html>
